@@ -8,9 +8,27 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	
+	<link rel="stylesheet" href="C:/Users/apriyadarshi/Desktop/Sub/font-awesome-4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript">
+		const signs = document.querySelectorAll('x-sign')
+		const randomIn = (min, max) => (
+		  Math.floor(Math.random() * (max - min + 1) + min)
+		)
+
+		const mixupInterval = el => {
+		  const ms = randomIn(2000, 4000)
+		  el.style.setProperty('--interval', `${ms}ms`)
+		}
+
+		signs.forEach(el => {
+		  mixupInterval(el)
+		  el.addEventListener('webkitAnimationIteration', () => {
+		    mixupInterval(el)
+		  })
+		})
+	</script>
 	<style type="text/css">
-		.parallax {
+			.parallax {
 		  /* The image used */
 		  background-image: url("C:/Users/apriyadarshi/Desktop/Sub/opening_image.jpg");
 		  
@@ -46,6 +64,8 @@
 			font-family: ptserif_55f;
 		}
 		
+		@font-face { font-family: mont_reg; 
+					 src: url('C:/Users/apriyadarshi/Desktop/Sub/font/Montserrat-Regular.ttf'); } 
 		@font-face { font-family: sourcepro_reg; 
 					 src: url('C:/Users/apriyadarshi/Desktop/Sub/font/SourceSansPro-Regular.otf'); } 
 		@font-face { font-family: edwardian_itc; 
@@ -60,6 +80,42 @@
 					 src: url('C:/Users/apriyadarshi/Desktop/Sub/font/BebasNeue Regular.ttf'); }
 		@font-face { font-family: ptserif_55f; 
 					 src: url('C:/Users/apriyadarshi/Desktop/Sub/font/PTF55F.ttf'); }
+		 @font-face { font-family: futurapt; 
+					 src: url('C:/Users/apriyadarshi/Desktop/Sub/font/FuturaPTBold.otf'); }
+			@font-face { font-family: futuraptbook; 
+					 src: url('C:/Users/apriyadarshi/Desktop/Sub/font/FuturaPTBook.otf'); }
+			
+
+		x-sign {
+		  --interval: 1s;
+		  display: block;
+		  text-shadow: 
+		    0 0 10px var(--color1),
+		    0 0 20px var(--color2),
+		    0 0 40px var(--color3),
+		    0 0 80px var(--color4);
+		  will-change: filter, color;
+		  filter: saturate(60%);
+		  animation: flicker steps(100) var(--interval) 1s infinite;
+		}
+
+
+		x-sign:nth-of-type(1) {
+		  color: azure;
+		  --color1: azure;
+		  --color2: aqua;
+		  --color3: dodgerblue;
+		  --color4: blue;
+		  
+		}
+
+
+		@keyframes flicker {
+		  50% {
+		    color: white;
+		    filter: saturate(200%) hue-rotate(20deg);
+		  }
+		}
 	</style>
 </head>
 <body>
@@ -74,8 +130,9 @@
 		        <span class="icon-bar">WORK</span>
 		        <span class="icon-bar">CONTACT</span>
 		      </button>
-		      <a class="navbar-brand" style="color: white; padding:40px;font-size:40px;">Design Space</a><br>
-		      <a class="navbar-brand" style="color: white;font-size:40px;font-family: edwardian_itc;">Transforming Places</a>
+		      
+		      <a class="navbar-brand" style="color: white; padding:40px;font-size:40px;"><x-sign>Design Space</x-sign></a><br>
+		      <a class="navbar-brand" style="color: white;font-size:40px;font-family: edwardian_itc;"><x-sign>Transforming Places</x-sign></a>
 		      
 		      
 		      <!-- <ul class="nav navbar-nav navbar-right" style="text-align: center;font-family: sourcepro_reg; color: white;font-size: 15px">
@@ -89,16 +146,57 @@
 		</nav>
 		<div style="font-family: sourcepro_reg;text-align: center;color: white;padding-top: 400px"><span>SCROLL DOWN</span></div>
 	</div>
-	<div style="color: #777;background-color:transparent;text-align:center;padding:50px 80px;text-align: justify;">
-	  <p class="text-center w-responsive mx-auto mb-5"style="font-family: sourcepro_reg; font-size: 40px; color: black;"><b>"We are young professional catering to all class of society from low budget design to high budget design we do it all."</b></p>
-	  <p style="font-family: bebasneue_pro_light;font-size: 25px;text-align: center; padding-top: 50px;"><b>Your dream of owning a place which you can call your own are catered by our services. We do not only built design but we transform your place to suit your lifestyle . So you can chase your dreams easily.</b></p>
+	<div style="color: #777;background-color:transparent;padding:50px 80px;">
+		<strong><i class="fa fa-quote-left"style="font-size: 20px" aria-hidden="true"></i></strong>
+	  <p class="text-center w-responsive mx-auto mb-5"style="font-family: futurapt; font-size: 40px;text-align: justify; color: black;letter-spacing: .05em;font-weight: 400; line-height: 39px;"><b>We are young professional providing high-end architectural visualization for real estate.
+	  	<br></b></p>
+	  <strong><i class="fa fa-quote-right" style="font-size: 20px" aria-hidden="true"></i></strong>
+	  <p style="font-family: bebasneue_pro_light;font-size: 25px;text-align: center; padding-top: 50px;"><b>Your dream of owning a place which you can proudly call your own. We do not only built design but we transform your place to suit your lifestyle . So you can chase your dreams easily.</b></p>
 	</div>
 	<div class="parallax2">	</div>
 	
-	<div  class="contact_us" style="color: black;font-size: 20px;background-color:transparent;text-align:center;padding:50px 80px;text-align: justify;">
+	<div class="col-md-12 descibe" style="font-family: mont_reg; text-align: center;padding-bottom: 20px;background-color:#F5F5F5;">
+		<h2 class="heading">Complete Home Interiors & Exterior in One Place</h2><br>
+		<div class="col-md-3">
+			<img src="C:/Users/apriyadarshi/Desktop/Sub/icons/kitchen.png">
+		<p>Modular Kitchen</p>
+		</div>
+		<div class="col-md-3">
+			<img src="C:/Users/apriyadarshi/Desktop/Sub/icons/cupboard.png">
+		<p>Wardrobe & Storage Units</p>
+		</div>
+		<div class="col-md-3">
+			<img src="C:/Users/apriyadarshi/Desktop/Sub/icons/shelf.png">
+		<p>Crockery Units</p>
+		</div>
+		<div class="col-md-3">
+			<img src="C:/Users/apriyadarshi/Desktop/Sub/icons/furniture-and-household.png">
+		<p>Entertainment Units</p>
+		</div>
+		<div class="col-md-4">
+			<img src="C:/Users/apriyadarshi/Desktop/Sub/icons/lamp.png">
+		<p>Ceiling and lights</p>
+		</div>
+		<div class="col-md-4">
+			<img src="C:/Users/apriyadarshi/Desktop/Sub/icons/antique.png">
+		<p>Furniture</p>
+		</div>
+		<div class="col-md-4">
+			<img src="C:/Users/apriyadarshi/Desktop/Sub/icons/brick.png">
+		<p>Exterior & Construction</p>
+		</div>
+	</div>
+	<div style="color: #777;background-color:#F8F8F8;padding:50px 80px;">
+		<h2 class="h1-responsive font-weight-bold text-center my-4" style="font-family: futurapt;color: black;text-align: center;"><b>Our Motto</b></h2>
+	  <p class="text-center w-responsive mx-auto mb-5"style="font-family: futuraptbook; font-size: 30px;text-align: justify; color: black;letter-spacing: .02em;font-weight: 300; line-height: 39px;">
+		Your one stop solution to owning the entire house. We will take care of making the place your dream home personalised to suit your lifestyle. At Design Space , we bring together functionality and aesthetics to provide homeowners with customised and efficient home designs .Explore inspiring interior designs or get a free estimate – it’s all here on DesignSpace, your one stop for complete transformation .
+	</div>
+	
+
+	<div  class="contact_us" style="color: black;font-size: 20px;background-color:transparent;text-align:center;padding:20px;padding-bottom: 20px;text-align: justify;">
     <h2 class="h1-responsive font-weight-bold text-center my-4" style="font-family: bebasneue_pro_light;"><b>Contact</b></h2>
     <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions?<br> Please do not hesitate to contact us directly. Our team will come back to you within
         a matter of hours to help you.</p>
 
     <div class="row">
@@ -110,16 +208,20 @@
                     <p>Bengaluru, KA 560016, INDIA</p>
                 </li>
 
-                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                <li><i class="fa fa-phone" aria-hidden="true"></i>
                     <p>+91 8105020957</p>
                 </li>
 
-                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                <li><i class="fa fa-envelope-open-o" aria-hidden="true"></i>
                     <p>info@designspace.com</p>
                 </li>
             </ul>
-        
+            <div class="icon" style="font-size: 20px ;color:red">
+        	<i class="fa fa-instagram"></i>
+        	<i class="fa fa-pinterest" aria-hidden="true"></i>
+        	</div>
         </div>
+
         <!--Grid column-->
 
     </div>
